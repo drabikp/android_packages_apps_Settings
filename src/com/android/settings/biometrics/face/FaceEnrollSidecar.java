@@ -20,6 +20,9 @@ import android.app.Activity;
 import android.app.settings.SettingsEnums;
 import android.content.Intent;
 import android.hardware.face.FaceManager;
+import android.view.Surface;
+
+import androidx.annotation.Nullable;
 
 import com.android.settings.biometrics.BiometricEnrollSidecar;
 
@@ -36,9 +39,22 @@ public class FaceEnrollSidecar extends BiometricEnrollSidecar {
 
     private Intent mIntent;
 
+    /**
+     * Preview surface handed to the HAL, or null when Settings renders the preview itself.
+     * See {@link FaceEnrollPreviewFragment} for how this is obtained.
+     */
+    @Nullable
+    private final Surface mPreviewSurface;
+
     public FaceEnrollSidecar(int[] disabledFeatures, Intent intent) {
+        this(disabledFeatures, intent, null /* previewSurface */);
+    }
+
+    public FaceEnrollSidecar(int[] disabledFeatures, Intent intent,
+            @Nullable Surface previewSurface) {
         mDisabledFeatures = Arrays.copyOf(disabledFeatures, disabledFeatures.length);
         mIntent = intent;
+        mPreviewSurface = previewSurface;
     }
 
     @Override
@@ -51,7 +67,7 @@ public class FaceEnrollSidecar extends BiometricEnrollSidecar {
     public void startEnrollment() {
         super.startEnrollment();
         mFaceUpdater.enroll(mUserId, mToken, mEnrollmentCancel,
-                mEnrollmentCallback, mDisabledFeatures, mIntent);
+                mEnrollmentCallback, mDisabledFeatures, mPreviewSurface, mIntent);
     }
 
     private FaceManager.EnrollmentCallback mEnrollmentCallback

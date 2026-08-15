@@ -42,6 +42,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
+                <!-- Used when the HAL renders the preview itself: its buffers are protected,
+                     which a TextureView cannot sample. Kept below the TextureView in the
+                     z-order so the circle overlay still draws on top. -->
+                <com.android.settings.biometrics.face.FaceSquareSurfaceView
+                    android:id="@+id/surface_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:contentDescription="@null" />
+
                 <com.android.settings.biometrics.face.FaceSquareTextureView
                     android:id="@+id/texture_view"
                     android:layout_width="wrap_content"

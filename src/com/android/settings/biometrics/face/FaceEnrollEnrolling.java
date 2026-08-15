@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Surface;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
@@ -55,6 +56,10 @@ public class FaceEnrollEnrolling extends BiometricsEnrollEnrolling {
     private TextView mErrorText;
     private Interpolator mLinearOutSlowInInterpolator;
     private FaceEnrollPreviewFragment mPreviewFragment;
+
+    // Non-null only when the HAL renders the preview itself; handed to the HAL via
+    // FaceEnrollSidecar so it can draw into our TextureView.
+    private Surface mPreviewSurface;
 
     private ArrayList<Integer> mDisabledFeatures = new ArrayList<>();
     private ParticleCollection.Listener mListener = new ParticleCollection.Listener() {
@@ -120,7 +125,36 @@ public class FaceEnrollEnrolling extends BiometricsEnrollEnrolling {
             mDisabledFeatures.add(FEATURE_REQUIRE_ATTENTION);
         }
 
-        startEnrollment();
+        // When the HAL renders the preview itself it needs our Surface, which only becomes
+        // available asynchronously once the TextureView is laid out. Bring the preview fragment
+        // up first and start enrolling from the surface callback; otherwise enroll immediately,
+        // as AOSP does.
+        if (ensurePreviewFragment().halControlsPreview()) {
+            mPreviewFragment.setPreviewSurfaceListener(surface -> {
+                mPreviewSurface = surface;
+                startEnrollment();
+            });
+        } else {
+            startEnrollment();
+        }
+    }
+
+    /**
+     * Adds the preview fragment if it is not already present, and returns it. Safe to call more
+     * than once; {@link #startEnrollmentInternal()} relies on finding the fragment by tag.
+     */
+    private FaceEnrollPreviewFragment ensurePreviewFragment() {
+        mPreviewFragment = (FaceEnrollPreviewFragment) getSupportFragmentManager()
+                .findFragmentByTag(TAG_FACE_PREVIEW);
+        if (mPreviewFragment == null) {
+            mPreviewFragment = new FaceEnrollPreviewFragment();
+            getSupportFragmentManager().beginTransaction().add(mPreviewFragment, TAG_FACE_PREVIEW)
+                    .commitAllowingStateLoss();
+            // The fragment must reach onCreate/onResume before it can report its surface.
+            getSupportFragmentManager().executePendingTransactions();
+        }
+        mPreviewFragment.setListener(mListener);
+        return mPreviewFragment;
     }
 
     @Override
@@ -145,14 +179,7 @@ public class FaceEnrollEnrolling extends BiometricsEnrollEnrolling {
     @Override
     protected void startEnrollmentInternal() {
         super.startEnrollmentInternal();
-        mPreviewFragment = (FaceEnrollPreviewFragment) getSupportFragmentManager()
-                .findFragmentByTag(TAG_FACE_PREVIEW);
-        if (mPreviewFragment == null) {
-            mPreviewFragment = new FaceEnrollPreviewFragment();
-            getSupportFragmentManager().beginTransaction().add(mPreviewFragment, TAG_FACE_PREVIEW)
-                    .commitAllowingStateLoss();
-        }
-        mPreviewFragment.setListener(mListener);
+        ensurePreviewFragment();
     }
 
     @Override
@@ -167,7 +194,7 @@ public class FaceEnrollEnrolling extends BiometricsEnrollEnrolling {
             disabledFeatures[i] = mDisabledFeatures.get(i);
         }
 
-        return new FaceEnrollSidecar(disabledFeatures, getIntent());
+        return new FaceEnrollSidecar(disabledFeatures, getIntent(), mPreviewSurface);
     }
 
     @Override

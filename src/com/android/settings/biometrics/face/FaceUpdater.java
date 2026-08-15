@@ -64,9 +64,36 @@ public class FaceUpdater {
                 userId,
                 hardwareAuthToken,
                 cancel,
+                callback,
+                disabledFeatures,
+                null /* previewSurface */,
+                intent);
+    }
+
+    /**
+     * Wrapper around the {@link FaceManager#enroll} method, for HALs that render the enrollment
+     * preview themselves.
+     *
+     * <p>When {@code FaceSensorPropertiesInternal#supportsSelfIllumination} is set (the AIDL
+     * {@code SensorProps.halControlsPreview} field), the HAL owns the camera for the duration of
+     * enrollment and draws into {@code previewSurface}. Settings must not open the camera itself
+     * in that case, and must pass the surface here so the user can see the preview.
+     */
+    public void enroll(
+            int userId,
+            byte[] hardwareAuthToken,
+            CancellationSignal cancel,
+            FaceManager.EnrollmentCallback callback,
+            int[] disabledFeatures,
+            @Nullable Surface previewSurface,
+            Intent intent) {
+        this.enroll(
+                userId,
+                hardwareAuthToken,
+                cancel,
                 new NotifyingEnrollmentCallback(mContext, callback),
                 disabledFeatures,
-                null,
+                previewSurface,
                 false,
                 intent);
     }
