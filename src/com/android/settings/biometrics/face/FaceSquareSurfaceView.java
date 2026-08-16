@@ -73,14 +73,25 @@ public class FaceSquareSurfaceView extends SurfaceView {
      * device, two pixels of view height (955 vs 957) flipped the buffer between 1024x768 and
      * 1080x1080 and the preview between 21% too wide and 10% too tall.
      *
-     * <p>1024x768 was chosen by testing on the device: it is the stream the rounding used to land
-     * on in the runs where the preview rendered correctly, and it is the one confirmed to both
-     * render and give correct proportions. The view then measures 870x1160, overflowing the square
-     * frame and being cropped, which is what we want. The OEM's own enrollment activity pins
-     * 640x480; that can be selected at runtime but was not verified good here.
+     * <p>Any exact entry works, and that is the whole point of pinning: once the size is an exact
+     * entry the rounding has nothing to round, and {@link #onMeasure} then derives the matching
+     * view aspect by construction. Retested on this device with a reboot before each trial and the
+     * HAL proven idle first -- 1024x768, 640x480 and 1080x1080 all pinned exactly and all rendered
+     * correct proportions, with no protected-buffer abort and no HAL error in any run.
+     *
+     * <p>NOTE: an earlier round of testing recorded 640x480 and 1080x1080 as misbehaving. That was
+     * wrong. Those trials ran against a face HAL left wedged by a previous enrollment (spinning on
+     * errorcode 101 while holding the camera), which shows a black preview regardless of the size
+     * under test. Do not re-derive a "correct" size from a run without first proving the HAL idle.
+     *
+     * <p>1080x1080 is the default because it is the only candidate whose aspect matches the square
+     * enrollment frame: the view measures 870x870 and fills it exactly. The 4:3 entries measure
+     * 870x1160 inside the same 870x870 frame, so a quarter of the vertical field of view is
+     * cropped away. It is also the highest-resolution of the three. The OEM's own enrollment
+     * activity pins 640x480, which is equally correct and simply lower resolution.
      */
-    private static final int DEFAULT_BUFFER_WIDTH = 1024;
-    private static final int DEFAULT_BUFFER_HEIGHT = 768;
+    private static final int DEFAULT_BUFFER_WIDTH = 1080;
+    private static final int DEFAULT_BUFFER_HEIGHT = 1080;
 
     /** Overridable at runtime with {@code setprop persist.sys.face_preview_w|_h}. */
     public static int bufferWidth() {
