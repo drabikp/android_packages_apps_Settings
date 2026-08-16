@@ -27,6 +27,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.util.TypedValue;
 
 import com.android.settings.biometrics.BiometricEnrollSidecar;
 
@@ -66,13 +67,36 @@ public class FaceEnrollAnimationDrawable extends Drawable
         mListener = listener;
 
         mSquarePaint = new Paint();
-        mSquarePaint.setColor(Color.WHITE);
+        mSquarePaint.setColor(resolveMaskColor(context));
         mSquarePaint.setAntiAlias(true);
 
         mCircleCutoutPaint = new Paint();
         mCircleCutoutPaint.setColor(Color.TRANSPARENT);
         mCircleCutoutPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         mCircleCutoutPaint.setAntiAlias(true);
+    }
+
+    /**
+     * Colour of the mask that surrounds the circular preview cutout.
+     *
+     * <p>Upstream hardcoded {@link Color#WHITE}, which was written before Settings had a dark
+     * theme and renders as a bright square slab around the preview on every dark-themed device.
+     * The mask exists only to hide the parts of the preview outside the circle, so it should be
+     * whatever the page behind it is. Resolving {@code android.R.attr.colorBackground} off the
+     * activity theme gives that in both themes, and keeps the old behaviour as the fallback.
+     */
+    private static int resolveMaskColor(Context context) {
+        final TypedValue value = new TypedValue();
+        if (context.getTheme().resolveAttribute(android.R.attr.colorBackground, value, true)) {
+            if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT
+                    && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+                return value.data;
+            }
+            if (value.resourceId != 0) {
+                return context.getColor(value.resourceId);
+            }
+        }
+        return Color.WHITE;
     }
 
     @Override

@@ -237,8 +237,11 @@ public class FaceEnrollEnrolling extends BiometricsEnrollEnrolling {
         }
         mPreviewFragment.onEnrollmentProgressChange(steps, remaining);
 
-        // TODO: Update the actual animation
-        showError("Steps: " + steps + " Remaining: " + remaining);
+        // Upstream showed the raw step counter here as a placeholder for an animation that was
+        // never written. It is debug output, and it also overwrites any help message
+        // onEnrollmentHelp() has just put in the same TextView. Progress is already conveyed by
+        // the particle ring, so leave the slot to onEnrollmentHelp(). The DEBUG log above keeps
+        // the counter available when it is actually wanted.
 
         // TODO: Have this match any animations that UX comes up with
         if (remaining == 0) {
