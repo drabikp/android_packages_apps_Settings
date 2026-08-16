@@ -145,13 +145,13 @@
     <!-- Introduction detail message shown in face enrollment dialog when asking for parental consent [CHAR LIMIT=NONE]-->
     <string name="security_settings_face_enroll_introduction_consent_message" product="desktop">Using your child\u2019s face to unlock their device may be less secure than a strong pattern or PIN.</string>
     <!-- Message on the face enrollment introduction page that provides information about what could cause the phone to unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_looking" product="default"></string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="default">Your phone can unlock whenever you look at it, even when you didn’t mean to unlock it.</string>
     <!-- Message on the face enrollment introduction page that provides information about what could cause the phone to unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_looking" product="tablet"></string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="tablet">Your tablet can unlock whenever you look at it, even when you didn’t mean to unlock it.</string>
     <!-- Message on the face enrollment introduction page that provides information about what could cause the phone to unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_looking" product="device"></string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="device">Your device can unlock whenever you look at it, even when you didn’t mean to unlock it.</string>
     <!-- Message on the face enrollment introduction page that provides information about what could cause the phone to unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_looking" product="desktop"></string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="desktop">Your device can unlock whenever you look at it, even when you didn’t mean to unlock it.</string>
     <!-- Message on the face enrollment introduction page that provides information about what could cause the phone to unlock when asking for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_info_consent_looking" product="default"></string>
     <!-- Message on the face enrollment introduction page that provides information about what could cause the phone to unlock when asking for parental consent. [CHAR LIMIT=NONE] -->
@@ -177,13 +177,13 @@
     <!-- Message on the face enrollment introduction page that provides information about the relative security of face for unlocking the phone for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_info_less_secure" product="desktop"></string>
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="default"></string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="default">To make Face Unlock stricter, you can require your eyes to be open in Face Unlock settings.</string>
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="tablet"></string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="tablet">To make Face Unlock stricter, you can require your eyes to be open in Face Unlock settings.</string>
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="device"></string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="device">To make Face Unlock stricter, you can require your eyes to be open in Face Unlock settings.</string>
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="desktop"></string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="desktop">To make Face Unlock stricter, you can require your eyes to be open in Face Unlock settings.</string>
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock when asking for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_info_consent_gaze" product="default"></string>
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock when asking for parental consent. [CHAR LIMIT=NONE] -->
@@ -193,13 +193,13 @@
     <!-- Message on the face enrollment introduction page that provides information about how to require eyes to be open for Face Unlock when asking for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_info_consent_gaze" product="desktop"></string>
     <!-- Message on the face enrollment introduction page that explains how face unlock works. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_how_message" product="default"></string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="default">Face Unlock creates a model of your face and stores it on your phone. The front camera compares your face with that model each time you unlock.</string>
     <!-- Message on the face enrollment introduction page that explains how face unlock works. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_how_message" product="tablet"></string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="tablet">Face Unlock creates a model of your face and stores it on your tablet. The front camera compares your face with that model each time you unlock.</string>
     <!-- Message on the face enrollment introduction page that explains how face unlock works. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_how_message" product="device"></string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="device">Face Unlock creates a model of your face and stores it on your device. The front camera compares your face with that model each time you unlock.</string>
     <!-- Message on the face enrollment introduction page that explains how face unlock works. [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_how_message" product="desktop"></string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="desktop">Face Unlock creates a model of your face and stores it on your device. The front camera compares your face with that model each time you unlock.</string>
     <!-- Message on the face enrollment introduction page that explains how Face Unlock works when asking for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_how_consent_message" product="default"></string>
     <!-- Message on the face enrollment introduction page that explains how Face Unlock works when asking for parental consent. [CHAR LIMIT=NONE] -->
@@ -209,13 +209,13 @@
     <!-- Message on the face enrollment introduction page that explains how Face Unlock works when asking for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_how_consent_message" product="desktop"></string>
     <!-- Message on the face enrollment introduction page that explains privacy controls for face unlock [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_control_message" product="default"></string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="default">You can delete your face model in Settings at any time. Until you do, it stays on your phone.</string>
     <!-- Message on the face enrollment introduction page that explains privacy controls for face unlock [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_control_message" product="tablet"></string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="tablet">You can delete your face model in Settings at any time. Until you do, it stays on your tablet.</string>
     <!-- Message on the face enrollment introduction page that explains privacy controls for face unlock [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_control_message" product="device"></string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="device">You can delete your face model in Settings at any time. Until you do, it stays on your device.</string>
     <!-- Message on the face enrollment introduction page that explains privacy controls for face unlock [CHAR LIMIT=NONE] -->
-    <string name="security_settings_face_enroll_introduction_control_message" product="desktop"></string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="desktop">You can delete your face model in Settings at any time. Until you do, it stays on your device.</string>
     <!-- Message on the face enrollment introduction page that explains privacy controls for face unlock when asking for parental consent. [CHAR LIMIT=NONE] -->
     <string name="security_settings_face_enroll_introduction_control_consent_message" product="default"></string>
     <!-- Message on the face enrollment introduction page that explains privacy controls for face unlock when asking for parental consent. [CHAR LIMIT=NONE] -->

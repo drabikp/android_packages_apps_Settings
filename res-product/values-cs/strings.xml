@@ -83,10 +83,10 @@
     <string name="security_settings_face_enroll_introduction_consent_message" product="tablet" msgid="2689983368730833505">"Odemykání tabletu dítěte obličejem může být méně bezpečné než silné gesto nebo PIN."</string>
     <string name="security_settings_face_enroll_introduction_consent_message" product="device" msgid="5768077532130409820">"Odemykání zařízení dítěte obličejem může být méně bezpečné než silné gesto nebo PIN."</string>
     <string name="security_settings_face_enroll_introduction_consent_message" product="desktop" msgid="5768077532130409820">"Odemykání zařízení dítěte obličejem může být méně bezpečné než silné gesto nebo PIN."</string>
-    <string name="security_settings_face_enroll_introduction_info_looking" product="default" msgid="6532489273492650716"></string>
-    <string name="security_settings_face_enroll_introduction_info_looking" product="tablet" msgid="6532489273492650716"></string>
-    <string name="security_settings_face_enroll_introduction_info_looking" product="device" msgid="6532489273492650716"></string>
-    <string name="security_settings_face_enroll_introduction_info_looking" product="desktop" msgid="6532489273492650716"></string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="default" msgid="6532489273492650716">Telefon se může odemknout pokaždé, když se na něj podíváte – i když jste to nechtěli.</string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="tablet" msgid="6532489273492650716">Tablet se může odemknout pokaždé, když se na něj podíváte – i když jste to nechtěli.</string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="device" msgid="6532489273492650716">Zařízení se může odemknout pokaždé, když se na něj podíváte – i když jste to nechtěli.</string>
+    <string name="security_settings_face_enroll_introduction_info_looking" product="desktop" msgid="6532489273492650716">Zařízení se může odemknout pokaždé, když se na něj podíváte – i když jste to nechtěli.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking" product="default" msgid="5741230674977518758"></string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking" product="tablet" msgid="5741230674977518758"></string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking" product="device" msgid="5741230674977518758"></string>
@@ -99,26 +99,26 @@
     <string name="security_settings_face_enroll_introduction_info_less_secure" product="tablet" msgid="8122442762352835480"></string>
     <string name="security_settings_face_enroll_introduction_info_less_secure" product="device" msgid="8122442762352835480"></string>
     <string name="security_settings_face_enroll_introduction_info_less_secure" product="desktop" msgid="8122442762352835480"></string>
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="default" msgid="762967108645858948"></string>
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="tablet" msgid="762967108645858948"></string>
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="device" msgid="762967108645858948"></string>
-    <string name="security_settings_face_enroll_introduction_info_gaze" product="desktop" msgid="762967108645858948"></string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="default" msgid="762967108645858948">Chcete-li odemykání obličejem zpřísnit, můžete v jeho nastavení vyžadovat otevřené oči.</string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="tablet" msgid="762967108645858948">Chcete-li odemykání obličejem zpřísnit, můžete v jeho nastavení vyžadovat otevřené oči.</string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="device" msgid="762967108645858948">Chcete-li odemykání obličejem zpřísnit, můžete v jeho nastavení vyžadovat otevřené oči.</string>
+    <string name="security_settings_face_enroll_introduction_info_gaze" product="desktop" msgid="762967108645858948">Chcete-li odemykání obličejem zpřísnit, můžete v jeho nastavení vyžadovat otevřené oči.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze" product="default" msgid="4344820870381904205"></string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze" product="tablet" msgid="4344820870381904205"></string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze" product="device" msgid="4344820870381904205"></string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze" product="desktop" msgid="4344820870381904205"></string>
-    <string name="security_settings_face_enroll_introduction_how_message" product="default" msgid="8933211744361765188"></string>
-    <string name="security_settings_face_enroll_introduction_how_message" product="tablet" msgid="8933211744361765188"></string>
-    <string name="security_settings_face_enroll_introduction_how_message" product="device" msgid="8933211744361765188"></string>
-    <string name="security_settings_face_enroll_introduction_how_message" product="desktop" msgid="8933211744361765188"></string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="default" msgid="8933211744361765188">Odemykání obličejem vytvoří model vašeho obličeje a uloží ho do telefonu. Při každém odemknutí přední fotoaparát porovná váš obličej s tímto modelem.</string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="tablet" msgid="8933211744361765188">Odemykání obličejem vytvoří model vašeho obličeje a uloží ho do tabletu. Při každém odemknutí přední fotoaparát porovná váš obličej s tímto modelem.</string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="device" msgid="8933211744361765188">Odemykání obličejem vytvoří model vašeho obličeje a uloží ho do zařízení. Při každém odemknutí přední fotoaparát porovná váš obličej s tímto modelem.</string>
+    <string name="security_settings_face_enroll_introduction_how_message" product="desktop" msgid="8933211744361765188">Odemykání obličejem vytvoří model vašeho obličeje a uloží ho do zařízení. Při každém odemknutí přední fotoaparát porovná váš obličej s tímto modelem.</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message" product="default" msgid="5091057232082857733"></string>
     <string name="security_settings_face_enroll_introduction_how_consent_message" product="tablet" msgid="5091057232082857733"></string>
     <string name="security_settings_face_enroll_introduction_how_consent_message" product="device" msgid="5091057232082857733"></string>
     <string name="security_settings_face_enroll_introduction_how_consent_message" product="desktop" msgid="5091057232082857733"></string>
-    <string name="security_settings_face_enroll_introduction_control_message" product="default" msgid="5648868145191337026"></string>
-    <string name="security_settings_face_enroll_introduction_control_message" product="tablet" msgid="5648868145191337026"></string>
-    <string name="security_settings_face_enroll_introduction_control_message" product="device" msgid="5648868145191337026"></string>
-    <string name="security_settings_face_enroll_introduction_control_message" product="desktop" msgid="5648868145191337026"></string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="default" msgid="5648868145191337026">Model obličeje můžete kdykoli smazat v Nastavení. Dokud to neuděláte, zůstane uložený v telefonu.</string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="tablet" msgid="5648868145191337026">Model obličeje můžete kdykoli smazat v Nastavení. Dokud to neuděláte, zůstane uložený v tabletu.</string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="device" msgid="5648868145191337026">Model obličeje můžete kdykoli smazat v Nastavení. Dokud to neuděláte, zůstane uložený v zařízení.</string>
+    <string name="security_settings_face_enroll_introduction_control_message" product="desktop" msgid="5648868145191337026">Model obličeje můžete kdykoli smazat v Nastavení. Dokud to neuděláte, zůstane uložený v zařízení.</string>
     <string name="security_settings_face_enroll_introduction_control_consent_message" product="default" msgid="6983939010814873996"></string>
     <string name="security_settings_face_enroll_introduction_control_consent_message" product="tablet" msgid="6983939010814873996"></string>
     <string name="security_settings_face_enroll_introduction_control_consent_message" product="device" msgid="6983939010814873996"></string>

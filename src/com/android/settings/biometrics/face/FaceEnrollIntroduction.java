@@ -34,6 +34,7 @@ import android.hardware.face.IFaceAuthenticatorsRegisteredCallback;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
@@ -175,6 +176,8 @@ public class FaceEnrollIntroduction extends BiometricEnrollIntroduction {
             iconRequireEyes.getBackground().setColorFilter(getIconColorFilter());
             infoMessageRequireEyes.setText(getInfoMessageRequireEyes());
         }
+
+        updateInfoSectionVisibility();
 
 
         if (mFaceManager != null) {
@@ -630,10 +633,80 @@ public class FaceEnrollIntroduction extends BiometricEnrollIntroduction {
             infoRowLessSecure.setVisibility(View.VISIBLE);
             iconLessSecure.getBackground().setColorFilter(getIconColorFilter());
         }
+        // The "less secure" row may have just appeared, which can revive the "Keep in mind"
+        // heading that onCreate hid.
+        updateInfoSectionVisibility();
         updateDescriptionText();
     }
 
     protected boolean isPrivateProfile() {
         return Utils.isPrivateProfile(mUserId, getApplicationContext());
+    }
+
+    /**
+     * Hides the parts of the info section that have no text to show.
+     *
+     * <p>Several of these strings ship empty in AOSP, in every locale -- the real copy is
+     * proprietary to the device maker, so the resource exists only as a hook for a closed
+     * overlay. Left alone, the page renders an icon next to a zero-height TextView, and section
+     * headings with nothing underneath them, which reads as a broken screen rather than a short
+     * one. Anything without text is hidden instead, and a heading goes with the last of its rows.
+     *
+     * <p>Must run after every decision that makes a row visible, and again whenever one of those
+     * decisions changes -- see {@link #onFaceStrengthChanged()}.
+     */
+    private void updateInfoSectionVisibility() {
+        hideRowIfMessageEmpty(R.id.info_row_glasses, R.id.info_message_glasses);
+        hideRowIfMessageEmpty(R.id.info_row_looking, R.id.info_message_looking);
+        hideRowIfMessageEmpty(R.id.info_row_require_eyes, R.id.info_message_require_eyes);
+        hideRowIfMessageEmpty(R.id.info_row_less_secure, R.id.info_message_less_secure);
+
+        // "Keep in mind" only earns its place if something is left under it.
+        setVisibleIfAnyRowVisible(R.id.title_info, R.id.info_row_glasses, R.id.info_row_looking,
+                R.id.info_row_require_eyes, R.id.info_row_less_secure);
+
+        // The remaining sections are a heading plus a single message, so they stand or fall
+        // together.
+        hideIfTextEmpty(R.id.title_how, R.id.how_message);
+        hideIfTextEmpty(R.id.how_message, R.id.how_message);
+        hideIfTextEmpty(R.id.title_in_control, R.id.message_in_control);
+        hideIfTextEmpty(R.id.message_in_control, R.id.message_in_control);
+    }
+
+    private void hideRowIfMessageEmpty(int rowId, int messageId) {
+        final View row = findViewById(rowId);
+        final TextView message = findViewById(messageId);
+        if (row != null && (message == null || TextUtils.isEmpty(message.getText()))) {
+            row.setVisibility(View.GONE);
+        }
+    }
+
+    private void hideIfTextEmpty(int viewId, int textId) {
+        final View view = findViewById(viewId);
+        final TextView text = findViewById(textId);
+        if (view != null && (text == null || TextUtils.isEmpty(text.getText()))) {
+            view.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * Shows {@code viewId} when at least one of {@code rowIds} is visible, and hides it otherwise.
+     *
+     * <p>Two-way on purpose: a row can appear after onCreate (the "less secure" row waits on the
+     * sensor strength callback), and a heading hidden on the first pass has to come back with it.
+     */
+    private void setVisibleIfAnyRowVisible(int viewId, int... rowIds) {
+        final View view = findViewById(viewId);
+        if (view == null) {
+            return;
+        }
+        for (int rowId : rowIds) {
+            final View row = findViewById(rowId);
+            if (row != null && row.getVisibility() == View.VISIBLE) {
+                view.setVisibility(View.VISIBLE);
+                return;
+            }
+        }
+        view.setVisibility(View.GONE);
     }
 }

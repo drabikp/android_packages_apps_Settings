@@ -62,12 +62,14 @@
 
             <!-- Keep in mind -->
             <TextView
+                android:id="@+id/title_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/BiometricEnrollIntroTitle"
                 android:text="@string/security_settings_face_enroll_introduction_info_title" />
 
             <LinearLayout
+                android:id="@+id/info_row_glasses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -88,6 +90,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/info_row_looking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -154,6 +157,7 @@
 
             <!-- How it works -->
             <TextView
+                android:id="@+id/title_how"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/BiometricEnrollIntroTitle"

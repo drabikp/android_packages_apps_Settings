@@ -381,7 +381,7 @@
     <string name="security_settings_face_enroll_education_title" msgid="6448806884597691208">"Jak nastavit odemknutí obličejem"</string>
     <string name="security_settings_face_enroll_education_title_accessibility" msgid="3701874093226957891">"Nastavte odemknutí obličejem"</string>
     <string name="security_settings_face_enroll_education_title_unlock_disabled" msgid="8810954233979716906">"Ověření pomocí obličeje"</string>
-    <string name="security_settings_face_enroll_education_message" msgid="4308030157487176799"></string>
+    <string name="security_settings_face_enroll_education_message" msgid="4308030157487176799">Držte telefon ve výšce očí, přibližně na délku paže, a umístěte obličej do kruhu. Až k tomu budete vyzváni, pomalu otáčejte hlavou.</string>
     <string name="security_settings_face_enroll_education_start" msgid="8830924400907195590">"Začít"</string>
     <string name="security_settings_face_enroll_education_accessibility_dialog_message" msgid="2965952386172202665">"Pokud je vypnuto odemknutí obličejem v režimu přístupnosti, některé kroky nastavení nemusí s aplikací TalkBack fungovat správně."</string>
     <string name="security_settings_face_enroll_education_accessibility_dialog_negative" msgid="7872647360361245461">"Zpět"</string>
@@ -398,12 +398,12 @@
     <string name="security_settings_face_enroll_introduction_title_unlock_disabled" msgid="5903924766168353113">"Ověření pomocí obličeje"</string>
     <string name="security_settings_face_enroll_introduction_message_unlock_disabled" msgid="5841976283789481311">"Odemykejte telefon a schvalujte nákupy pomocí obličeje.\n\nPoznámka: Obličej nelze použít k odemykání tohoto zařízení. Další informace vám poskytne administrátor vaší organizace."</string>
     <string name="security_settings_face_enroll_introduction_message_setup" msgid="765965418187421753">"Odemykejte telefon, autorizujte nákupy a přihlašujte se do aplikací."</string>
-    <string name="security_settings_face_enroll_introduction_info_title" msgid="7120796118179406944"></string>
-    <string name="security_settings_face_enroll_introduction_info_glasses" msgid="2733870453868907471"></string>
-    <string name="security_settings_face_enroll_introduction_info_consent_glasses" msgid="6303917184145586880"></string>
-    <string name="security_settings_face_enroll_introduction_how_title" msgid="3680193263037835600"></string>
-    <string name="security_settings_face_enroll_introduction_control_title" msgid="4536951089583821051"></string>
-    <string name="security_settings_face_enroll_introduction_control_consent_title" msgid="5892729331412694759"></string>
+    <string name="security_settings_face_enroll_introduction_info_title" msgid="7120796118179406944">Mějte na paměti</string>
+    <string name="security_settings_face_enroll_introduction_info_glasses" msgid="2733870453868907471">Obličej nastavte bez brýlí. Odemykat pak půjde i s nasazenými brýlemi.</string>
+    <string name="security_settings_face_enroll_introduction_info_consent_glasses" msgid="6303917184145586880">Dítě by si mělo obličej nastavit bez brýlí. Odemykat pak půjde i s nasazenými brýlemi.</string>
+    <string name="security_settings_face_enroll_introduction_how_title" msgid="3680193263037835600">Jak to funguje</string>
+    <string name="security_settings_face_enroll_introduction_control_title" msgid="4536951089583821051">Máte to pod kontrolou</string>
+    <string name="security_settings_face_enroll_introduction_control_consent_title" msgid="5892729331412694759">Máte to pod kontrolou</string>
     <string name="security_settings_face_enroll_repeat_title" msgid="4446229670377418717">"Umístěte obličej do středu kruhu"</string>
     <string name="security_settings_face_enroll_enrolling_skip" msgid="5568617401632528567">"Přeskočit"</string>
     <string name="face_intro_error_max" msgid="2474735057709291626">"Přidali jste maximální počet obličejů"</string>
